@@ -1,5 +1,7 @@
 package fr.todooz.domain;
 
+import org.apache.commons.lang.StringUtils;
+
 import java.util.Date;
 
 public class Task {
@@ -12,6 +14,7 @@ public class Task {
     private Date date;
 
     private String tags;
+
 
     public String getText() {
         return text;
@@ -52,4 +55,9 @@ public class Task {
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
+
+    public String[] getTagArray() {
+        return StringUtils.split(tags, ",");
+    }
+
 }

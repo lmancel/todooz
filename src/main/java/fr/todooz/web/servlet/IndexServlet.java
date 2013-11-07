@@ -7,17 +7,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-public class HelloWorldServlet extends HttpServlet {
+public class IndexServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("index.html").forward(request, response);
+        request.setAttribute("tasks", DummyData.tasks());
+        request.getRequestDispatcher("WEB-INF/jsp/index.jsp").forward(request, response);
     }
 }
-
 

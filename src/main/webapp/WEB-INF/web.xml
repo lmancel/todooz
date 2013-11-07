@@ -2,13 +2,15 @@
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0">
 
     <display-name>todooz</display-name>
+
     <servlet>
-        <servlet-name>HelloWorldServlet</servlet-name>
-        <servlet-class>fr.todooz.web.servlet.HelloWorldServlet</servlet-class>
+        <servlet-name>spring</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>HelloWorldServlet</servlet-name>
-        <url-pattern>/HelloWorldServlet</url-pattern>
+        <servlet-name>spring</servlet-name>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
 </web-app>

@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,53 +37,18 @@
         <div class="col-lg-7 col-lg-offset-1">
             <legend>All tasks</legend>
 
-            <div>
-                <p>20 juillet 2012</p>
-                <span class="lead">Read Effective Java</span>
-                <code>Java</code>
-                <code>Java</code>
-                <p>Read Effective Java before it's too late</p>
-            </div>
+            <c:forEach var="task" items="${tasks}">
+                <div>
+                    <p><fmt:formatDate value="${task.date}" pattern="dd MMM yyyy"/></p>
+                    <span class="lead">${task.title}</span>
+                    <c:forEach var="tag" items="${task.tagArray}">
+                        <code>${tag}</code>
+                    </c:forEach>
+                    <p>${task.text}</p>
+                </div>
+            </c:forEach>
 
-            <div>
-                <p>20 juillet 2012</p>
-                <span class="lead">Read Effective Java</span>
-                <code>Java</code>
-                <code>Java</code>
-                <p>Read Effective Java before it's too late</p>
-            </div>
 
-            <div>
-                <p>20 juillet 2012</p>
-                <span class="lead">Read Effective Java</span>
-                <code>Java</code>
-                <code>Java</code>
-                <p>Read Effective Java before it's too late</p>
-            </div>
-
-            <div>
-                <p>20 juillet 2012</p>
-                <span class="lead">Read Effective Java</span>
-                <code>Java</code>
-                <code>Java</code>
-                <p>Read Effective Java before it's too late</p>
-            </div>
-
-            <div>
-                <p>20 juillet 2012</p>
-                <span class="lead">Read Effective Java</span>
-                <code>Java</code>
-                <code>Java</code>
-                <p>Read Effective Java before it's too late</p>
-            </div>
-
-            <div>
-                <p>20 juillet 2012</p>
-                <span class="lead">Read Effective Java</span>
-                <code>Java</code>
-                <code>Java</code>
-                <p>Read Effective Java before it's too late</p>
-            </div>
         </div>
         <div class="col-lg-3">
             <div class="panel panel-default">
