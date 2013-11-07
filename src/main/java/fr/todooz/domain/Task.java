@@ -1,6 +1,6 @@
 package fr.todooz.domain;
 
-import java.util.Date
+import java.util.Date;
 
 public class Task {
     private Date createdAt = new Date();
