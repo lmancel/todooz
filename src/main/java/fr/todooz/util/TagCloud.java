@@ -30,4 +30,11 @@ public class TagCloud {
     private boolean canAdd(String tag) {
         return tag != null && !"".equals(tag) && !contains(tag);
     }
+
+    public void top(int count) {
+        count = Math.max(count , 0);
+        count = Math.min(count , tags.size());
+
+        tags = tags.subList(0, count);
+    }
 }
