@@ -29,7 +29,7 @@ public class IndexController {
     @RequestMapping({"/","/index", "/index.html"})
     public String index(Model model) {
         model.addAttribute("tasks", taskService.findAll());
-        model.addAttribute("tags", tagCloudService.buildTagCloud());
+        model.addAttribute("tagCloud", tagCloudService.buildTagCloud());
         return "index";
     }
 
@@ -52,22 +52,4 @@ public class IndexController {
         return "index";
     }
 
-    @PostConstruct
-    public void bootstrap() {
-        if (taskService.count() == 0) {
-            for (int i = 0; i < 3; i++) {
-                taskService.save(buildTask("test"));
-            }
-        }
-    }
-    private Task buildTask(String tags) {
-        Task task = new Task();
-
-        task.setDate(new Date());
-        task.setTitle("Read Effective Java");
-        task.setText("Read Effective Java before it's too late");
-        task.setTags(tags);
-
-        return task;
-    }
 }

@@ -25,4 +25,7 @@ public interface TaskService {
     int count();
 
     List<Task> findByTag(String tag);
+
+    @Transactional
+    Task findById(Long id);
 }

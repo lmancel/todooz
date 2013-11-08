@@ -71,6 +71,12 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     @Transactional
+    public Task findById(Long id) {
+        return (Task) sessionFactory.getCurrentSession().get(Task.class, id);
+    }
+
+    @Override
+    @Transactional
     public int count() {
         return this.findAll().size();
 

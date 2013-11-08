@@ -1,7 +1,13 @@
 ----------------------------------------------------------------
-Fri Nov 08 15:55:47 CET 2013:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-0142-3836-3a86-000003951648 
-on database directory /Users/lmancel/Desktop/todooz/target/testdb with class loader sun.misc.Launcher$AppClassLoader@530f243b 
+Fri Nov 08 17:23:03 CET 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-0142-3886-1ed5-000007e531a8 
+on database directory /Users/lmancel/Desktop/todooz/target/taskdb with class loader WebappClassLoader
+  context: 
+  delegate: false
+  repositories:
+----------> Parent Classloader:
+ClassRealm[plugin>org.apache.tomcat.maven:tomcat7-maven-plugin:2.1, parent: sun.misc.Launcher$AppClassLoader@23137792]
+ 
 Loaded from file:/Users/lmancel/.m2/repository/org/apache/derby/derby/10.10.1.1/derby-10.10.1.1.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.7.0_45-b18
