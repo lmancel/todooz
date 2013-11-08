@@ -1,74 +1,28 @@
 package fr.todooz.service;
 
 import fr.todooz.domain.Task;
-import org.hibernate.*;
-import org.hibernate.criterion.MatchMode;
-import org.hibernate.criterion.Restrictions;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public class TaskService {
-    private SessionFactory sessionFactory;
+/**
+ * Created with IntelliJ IDEA.
+ * User: lmancel
+ * Date: 08/11/13
+ * Time: 11:07
+ * To change this template use File | Settings | File Templates.
+ */
+public interface TaskService {
+    void save(Task task);
 
-    public void save(Task task) {
-        Session session = sessionFactory.openSession();
+    void delete(Long id);
 
-        Transaction transaction = session.beginTransaction();
+    List<Task> findAll();
 
-        session.save(task);
-
-        transaction.commit();
-
-        session.close();
-    }
-
-    public void delete(Long id) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-
-        session.createQuery("delete from Task where id = :id")
-            .setLong("id", id)
-            .executeUpdate();
-
-        transaction.commit();
-        session.close();
-    }
+    List<Task> findByQuery(String query);
 
 
-    public List<Task> findAll() {
-        Session session = sessionFactory.openSession();
+    int count();
 
-        Query query = session.createQuery("from Task");
-
-        List<Task> tasks = query.list();
-
-        session.close();
-
-        return tasks;
-    }
-
-    public List<Task> findByQuery(String query) {
-        Session session = sessionFactory.openSession();
-
-        Criteria criteria = session.createCriteria(Task.class);
-        criteria.add(Restrictions.ilike("title", query, MatchMode.ANYWHERE));
-
-        List<Task> task = criteria.list();
-        session.close();
-
-        return task;
-    }
-
-    public int count() {
-        return this.findAll().size();
-
-    }
-
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
-
-    public SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
+    List<Task> findByTag(String tag);
 }
